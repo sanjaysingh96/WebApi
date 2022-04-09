@@ -1,0 +1,67 @@
+﻿@model CrudBootstrap.Models.EmpModel
+
+@if (ViewBag.id == null)
+{
+    <h3>Add Employee</h3>
+}
+else
+{
+    <h3>Edit Employee</h3>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Forms</h2>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Basic Form Elements
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            @using (Html.BeginForm("Add", "Emp", FormMethod.Post))
+                            {
+
+                                @Html.HiddenFor(m => m.Id);
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Enter name..", @required = "required" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter email..", @required = "required" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Mobile</label>
+                                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Enter mobile..", @required = "required" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Salary</label>
+                                    @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", @placeholder = "Enter salary..", @required = "required" })
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            }
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+

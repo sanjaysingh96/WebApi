@@ -1,0 +1,31 @@
+﻿@model List<CrudBootstrap.Models.EmpModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table-bordered table-hover table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Salary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.Email</td>
+    <td>@item.Mobile</td>
+    <td>@item.Salary</td>
+    <td><a href="@Url.Action("Edit","Emp",new { item.Id})" class="btn btn-success">Edit</a></td>
+    <td><a href="@Url.Action("Delete","Emp",new { item.Id})" class="btn btn-danger">Delete</a></td>
+</tr>
+    }
+
+</table>
+
